@@ -21,7 +21,8 @@ import {
   Target,
   FileText,
   AlertCircle,
-  ExternalLink
+  ExternalLink,
+  Rocket
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { APPS_DATA, PROBLEM_COMPARISON, WHAT_YOU_WILL_LEARN, FAQ_DATA } from './data/appsData';
@@ -69,6 +70,7 @@ export default function App() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 44, seconds: 12 });
+  const [showStickyCTA, setShowStickyCTA] = useState<boolean>(false);
 
   // Urgency Timer simulation
   useEffect(() => {
@@ -86,6 +88,19 @@ export default function App() {
       });
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Persistent mobile bottom sticky bar scroll activator
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowStickyCTA(true);
+      } else {
+        setShowStickyCTA(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleOpenReservar = () => {
@@ -169,7 +184,6 @@ export default function App() {
 
           <div>
             <PremiumCTAButton 
-              onClick={handleOpenReservar}
               size="nav"
               className="shadow-lg shadow-violet-500/5"
             />
@@ -215,25 +229,32 @@ export default function App() {
             </div>
   
             {/* Quick Pricing block with enhanced Linear-like dark glass */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#07050e]/95 to-[#0e0c15]/95 border border-white/[0.07] max-w-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.06),0_12px_40px_rgba(0,0,0,0.8)] hover:border-emerald-500/30 transition-all duration-300 relative overflow-hidden group">
-              <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-violet-500/25 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="space-y-1 relative z-10">
-                <span className="text-[11px] sm:text-[10px] font-mono tracking-widest text-emerald-450 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full uppercase border border-emerald-500/20">
-                  Acceso Total Garantizado
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#0a0715]/95 to-[#120f26]/95 border border-white/[0.12] max-w-lg flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.1),0_20px_50px_rgba(0,0,0,0.9)] hover:border-violet-500/30 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#10b981] to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-[#8b5cf6]/35 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/[0.04] via-transparent to-violet-500/[0.04] opacity-100" />
+              
+              <div className="space-y-2 relative z-10">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-3 py-1 rounded-full uppercase tracking-wider font-mono">
+                  🔥 PRECIO DE LANZAMIENTO
                 </span>
-                <p className="text-[14px] sm:text-xs text-zinc-400 font-light">Incluye soporte personalizado por 15 días</p>
+                <p className="text-[13.5px] sm:text-[13px] text-zinc-300 font-medium">
+                  Acceso al taller en vivo + grabaciones + soporte 15 días
+                </p>
               </div>
-              <div className="flex items-baseline gap-2 shrink-0 relative z-10">
-                <span className="text-[14px] sm:text-xs text-zinc-650 line-through font-mono">$199.00 USD</span>
-                <span className="text-[26px] sm:text-2xl font-extrabold text-white font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-300">USD 24.99</span>
+              <div className="flex flex-col items-start sm:items-end justify-center shrink-0 relative z-10 border-t sm:border-t-0 sm:border-l border-white/5 pt-3 sm:pt-0 sm:pl-5 space-y-1">
+                <span className="text-xs text-zinc-500 line-through font-mono uppercase tracking-widest block">
+                  ANTES: $199 USD
+                </span>
+                <span className="text-3xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300 tracking-tight leading-none drop-shadow-[0_0_12px_rgba(16,185,129,0.3)] block">
+                  HOY: $24.99 USD
+                </span>
               </div>
             </div>
 
             {/* Hero CTA Button */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
               <PremiumCTAButton 
-                onClick={handleOpenReservar} 
                 size="lg" 
                 className="w-full sm:w-auto shrink-0 select-none" 
               />
@@ -888,7 +909,6 @@ export default function App() {
 
           <div className="flex justify-center pt-4 select-none">
             <PremiumCTAButton 
-              onClick={handleOpenReservar}
               size="lg"
               className="w-full max-w-sm"
             />
@@ -968,7 +988,6 @@ export default function App() {
 
             <div className="pt-2 select-none">
               <PremiumCTAButton 
-                onClick={handleOpenReservar}
                 size="md"
                 className="w-full sm:w-auto"
               />
@@ -1256,22 +1275,40 @@ export default function App() {
           </div>
 
           {/* Pricing Box Wrap */}
-          <div className="bg-[#0b0617]/90 p-5 sm:p-8 rounded-3xl border border-violet-500/30 max-w-lg mx-auto space-y-6 relative overflow-hidden shadow-[0_0_80px_rgba(139,92,246,0.15),inset_0_1px_1.5px_rgba(255,255,255,0.04)] backdrop-blur-md">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="relative bg-gradient-to-tr from-[#0a0618]/98 via-[#0e0a24]/98 to-[#160f38]/98 p-6 sm:p-10 rounded-3xl border border-white/[0.12] max-w-lg mx-auto space-y-8 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(139,92,246,0.2),0_0_20px_rgba(16,185,129,0.15),inset_0_1px_2.5px_rgba(255,255,255,0.12)] backdrop-blur-xl overflow-hidden group hover:border-[#10b981]/30 transition-all duration-300">
             
-            <div className="flex justify-between items-center pb-4 border-b border-white/5">
-              <div className="text-left space-y-0.5">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Inversión única</span>
-                <p className="text-sm font-bold text-white">Cupo Completo Taller IA</p>
+            {/* Dynamic decorative line spotlights */}
+            <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#10b981] to-transparent" />
+            <div className="absolute bottom-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#8b5cf6] to-transparent" />
+            <div className="absolute -top-12 -right-12 w-44 h-44 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-12 -left-12 w-44 h-44 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="text-center space-y-3 relative z-10">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[11px] font-mono font-bold uppercase tracking-wider">
+                🔥 PRECIO DE LANZAMIENTO
               </div>
-              <div className="text-right flex items-baseline gap-2">
-                <span className="text-xs text-zinc-500 line-through font-mono">$199.00 USD</span>
-                <span className="text-[28px] sm:text-2xl font-black text-white font-display">USD 24.99</span>
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Taller Crea y Vende Apps con IA
+              </h3>
+            </div>
+
+            {/* Massive pricing block */}
+            <div className="bg-black/40 border border-white/5 rounded-2xl p-5 sm:p-6 text-center space-y-2 relative z-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]">
+              <div className="text-xs sm:text-sm text-zinc-500 line-through font-mono tracking-widest uppercase">
+                ANTES: $199.00 USD
+              </div>
+              <div className="space-y-1">
+                <div className="text-[44px] xs:text-[48px] sm:text-5xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-emerald-450 via-[#10b981] to-emerald-300 tracking-tighter leading-none drop-shadow-[0_0_15px_rgba(16,185,129,0.35)]">
+                  $24.99 USD
+                </div>
+                <span className="text-[11px] font-mono text-zinc-400 block tracking-wider uppercase font-medium">
+                  Abono único · Acceso oficial inmediato
+                </span>
               </div>
             </div>
 
             {/* Checklist items */}
-            <div className="space-y-3 text-left">
+            <div className="space-y-3 text-left pt-2">
               {[
                 'Taller en vivo (Fase práctica directa)',
                 'Grabaciones de por vida en HD',
@@ -1285,9 +1322,8 @@ export default function App() {
               ))}
             </div>
 
-            <div className="select-none pt-2">
+            <div className="select-none pt-2 relative z-10">
               <PremiumCTAButton 
-                onClick={handleOpenReservar}
                 size="lg"
                 className="w-full"
               />
@@ -1324,6 +1360,32 @@ export default function App() {
       <AnimatePresence>
         {isModalOpen && (
           <ReservarModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        )}
+      </AnimatePresence>
+
+      {/* Sticky Bottom Mobile CTA */}
+      <AnimatePresence>
+        {showStickyCTA && (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 280, damping: 25 }}
+            className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-neutral-950/95 backdrop-blur-xl border-t border-white/10 p-3 pb-safe flex items-center justify-center shadow-[0_-15px_35px_rgba(0,0,0,0.95)]"
+          >
+            {/* Elegant glowing indicator line */}
+            <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#10b981] via-[#818cf8] to-transparent" />
+            
+            <a 
+              href="https://app.takenos.com/pay/99e824aa-9cfd-431c-b043-3c6a0365c112"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center py-3 rounded-xl font-display font-black text-xs uppercase tracking-wider text-black bg-gradient-to-r from-[#10b981] via-[#5bef9b] via-[#818cf8] to-[#8b5cf6] border border-white/30 shadow-[0_0_20px_rgba(16,185,129,0.35),inset_0_1px_1.5px_rgba(255,255,255,0.4)] active:scale-95 duration-100 transition-all flex items-center justify-center gap-2"
+            >
+              <span>$24.99 USD · INSCRIBIRME AHORA</span>
+              <Rocket className="w-3.5 h-3.5" />
+            </a>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
