@@ -145,7 +145,7 @@ export const FAQ_DATA: FAQItem[] = [
   },
   {
     question: '¿Tendré soporte si me quedo atascado?',
-    answer: 'Sí. A diferencia de cursos pregrabados donde estás solo, este taller incluye acceso a un canal privado de Discord de soporte técnico directo durante 15 días tras finalizar la sesión en vivo. Nuestro equipo te ayudará a resolver cualquier duda lógica o de configuración.',
+    answer: 'Sí. A diferencia de cursos pregrabados donde estás solo, este taller incluye acceso a un grupo privado de WhatsApp de soporte técnico directo durante 15 días tras finalizar la sesión en vivo. Nuestro equipo te ayudará a resolver cualquier duda lógica o de configuración.',
     category: 'Acceso'
   }
 ];

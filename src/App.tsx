@@ -27,6 +27,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { APPS_DATA, PROBLEM_COMPARISON, WHAT_YOU_WILL_LEARN, FAQ_DATA } from './data/appsData';
 import MockDeviceWrapper from './components/MockDeviceWrapper';
 import ReservarModal from './components/ReservarModal';
+import PremiumCTAButton from './components/PremiumCTAButton';
 
 // High-fidelity Framer-style mockup imports
 import profitFitnessImg from './assets/images/profit_fitness_mockup_1781845539931.jpg';
@@ -159,14 +160,11 @@ export default function App() {
           </div>
 
           <div>
-            <button 
+            <PremiumCTAButton 
               onClick={handleOpenReservar}
-              className="relative group overflow-hidden bg-neutral-900 text-white border border-white/10 hover:border-emerald-500/50 px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-lg active:scale-95 cursor-pointer flex items-center gap-1.5"
-            >
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative z-10">Reservar Cupo</span>
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400 group-hover:rotate-12 transition-transform" />
-            </button>
+              size="nav"
+              className="shadow-lg shadow-violet-500/5"
+            />
           </div>
         </nav>
       </header>
@@ -221,13 +219,11 @@ export default function App() {
 
             {/* Hero CTA Button */}
             <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-              <button
-                onClick={handleOpenReservar}
-                className="bg-white hover:bg-neutral-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] text-black font-display font-black tracking-widest uppercase py-4.5 px-8 rounded-2xl text-xs transition-all flex items-center justify-center gap-2 group cursor-pointer shadow-lg active:scale-[0.98]"
-              >
-                <span>RESERVAR MI CUPO</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
+              <PremiumCTAButton 
+                onClick={handleOpenReservar} 
+                size="lg" 
+                className="w-full sm:w-auto shrink-0 select-none" 
+              />
               
               <a 
                 href="#aplicaciones" 
@@ -569,11 +565,7 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               
               {/* CARD: COPA FAMILY 2026 (Refined Violet Showcase) */}
-              <div className={`group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden ${
-                activeApp === 'copa-family-2026'
-                  ? 'border-violet-500/30 bg-gradient-to-b from-[#120524] via-neutral-950 to-neutral-950/90 ring-1 ring-violet-500/10 shadow-[0_0_50px_rgba(139,92,246,0.06),inset_0_1px_1px_rgba(255,255,255,0.02)]'
-                  : 'border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-violet-500/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.04)]'
-              }`}>
+              <div className="group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-violet-500/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.04)]">
                 {/* Violet ambient aura */}
                 <div className="absolute right-0 bottom-0 w-48 h-48 bg-violet-500/[0.03] group-hover:bg-violet-500/[0.05] rounded-full blur-[80px] pointer-events-none transition-all duration-300" />
                 
@@ -584,11 +576,6 @@ export default function App() {
                       <span className="text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 border-violet-500/25 text-violet-400">
                         Gestor Deportivo
                       </span>
-                      {activeApp === 'copa-family-2026' && (
-                        <span className="text-[9px] font-mono text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-0.5 rounded-full uppercase font-bold animate-pulse">
-                          En Simulador
-                        </span>
-                      )}
                     </div>
 
                     <div className="space-y-1.5 text-left">
@@ -614,67 +601,25 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* 3D-like Layered Screen Showcase: Superpositioned slightly and centered */}
-                  <div className="bg-gradient-to-b from-[#0c021c] to-[#040404] p-4 rounded-2xl border border-white/5 shadow-inner h-[290px] sm:h-[320px] flex items-center justify-center relative overflow-hidden select-none">
+                  {/* Premium Showcase Image directly placed and styled */}
+                  <div className="bg-gradient-to-b from-[#0c021c] to-[#040404] p-1.5 rounded-2xl border border-white/5 shadow-inner h-[290px] sm:h-[320px] flex items-center justify-center relative overflow-hidden select-none">
                     <div className="absolute inset-0 bg-[radial-gradient(#ffffff01_1px,transparent_1px)] [background-size:12px_12px] pointer-events-none" />
                     
                     {/* Shadow Backing Aura */}
                     <div className="absolute w-36 h-36 bg-violet-500/10 blur-[40px] pointer-events-none" />
                     
-                    {/* Floating Tech indicator */}
-                    <span className="absolute top-2 right-2.5 text-[8px] font-mono text-violet-500 uppercase font-black tracking-widest">[ LIGA_LIVE ]</span>
-
-                    {/* Main tilted device model for unmatched Framer-style presentation */}
-                    <div className="h-[95%] w-auto max-w-full rounded-2xl overflow-hidden border border-white/10 bg-[#080808] flex flex-col justify-between shadow-2xl relative transform hover:scale-[1.03] hover:rotate-1 duration-300">
-                      <div className="flex-1 overflow-hidden p-2 bg-neutral-950 flex items-center justify-center">
-                        <img 
-                          src="https://lh3.googleusercontent.com/d/1ouzullH3Ww5_ds7Z-8n3E1XIEMBc4xdd" 
-                          alt="Copa Family Main Preview" 
-                          referrerPolicy="no-referrer"
-                          className="h-full object-contain rounded-lg shadow-xl"
-                        />
-                      </div>
-                      <div className="py-2 bg-[#0e071a] border-t border-white/5 text-[8.5px] font-mono font-bold text-violet-450 text-center uppercase tracking-wider">
-                        Fixture Interactiva
-                      </div>
-                    </div>
+                    <img 
+                      src="https://lh3.googleusercontent.com/d/1QnAOQtPWLL1Hi6VKdohmTAT_UZGw8b7V" 
+                      alt="Copa Family 2026 Premium Showcase" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-[1.03] rounded-xl"
+                    />
                   </div>
-                </div>
-
-                {/* Bottom Action Grid */}
-                <div className="pt-5 grid grid-cols-2 gap-2.5 relative z-10 w-full">
-                  <button
-                    onClick={() => {
-                      setActiveApp('copa-family-2026');
-                      document.getElementById('landing-root')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                      activeApp === 'copa-family-2026'
-                        ? 'bg-violet-500/20 border border-violet-500/40 text-violet-350 shadow-[0_0_15px_rgba(139,92,246,0.15)]'
-                        : 'bg-neutral-900 border border-white/5 text-zinc-300 hover:bg-neutral-800'
-                    }`}
-                  >
-                    <Smartphone className="w-3.5 h-3.5" />
-                    <span>Simular</span>
-                  </button>
-                  <a
-                    href="https://copafamily.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-black hover:bg-neutral-100 text-center cursor-pointer"
-                  >
-                    <span>Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
                 </div>
               </div>
 
               {/* CARD: MUNDIAL 2026 (Refined Emerald Showcase) */}
-              <div className={`group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden ${
-                activeApp === 'mundial-2026'
-                  ? 'border-emerald-500/30 bg-gradient-to-b from-[#03150a] via-neutral-950 to-neutral-950/90 ring-1 ring-emerald-500/10 shadow-[0_0_50px_rgba(16,185,129,0.06),inset_0_1px_1px_rgba(255,255,255,0.02)]'
-                  : 'border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-emerald-500/20 hover:shadow-[0_0_30px_rgba(16,185,129,0.04)]'
-              }`}>
+              <div className="group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-emerald-500/20 hover:shadow-[0_0_30px_rgba(16,185,129,0.04)]">
                 {/* Emerald ambient aura */}
                 <div className="absolute right-0 bottom-0 w-48 h-48 bg-emerald-500/[0.03] group-hover:bg-emerald-500/[0.05] rounded-full blur-[80px] pointer-events-none transition-all duration-300" />
                 
@@ -685,11 +630,6 @@ export default function App() {
                       <span className="text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-emerald-500/10 border-emerald-500/25 text-emerald-400">
                         Gamificación
                       </span>
-                      {activeApp === 'mundial-2026' && (
-                        <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full uppercase font-bold animate-pulse">
-                          En Simulador
-                        </span>
-                      )}
                     </div>
 
                     <div className="space-y-1.5 text-left">
@@ -715,67 +655,25 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Center beautiful image container */}
-                  <div className="bg-gradient-to-b from-[#03150a] to-[#040404] p-4 rounded-2xl border border-white/5 shadow-inner h-[290px] sm:h-[320px] flex items-center justify-center relative overflow-hidden select-none">
+                  {/* Premium Showcase Image directly placed and styled */}
+                  <div className="bg-gradient-to-b from-[#03150a] to-[#040404] p-1.5 rounded-2xl border border-white/5 shadow-inner h-[290px] sm:h-[320px] flex items-center justify-center relative overflow-hidden select-none">
                     <div className="absolute inset-0 bg-[radial-gradient(#ffffff01_1px,transparent_1px)] [background-size:12px_12px] pointer-events-none" />
                     
                     {/* Shadow Backing Aura */}
                     <div className="absolute w-36 h-36 bg-emerald-500/10 blur-[40px] pointer-events-none" />
                     
-                    {/* Floating Tech indicator */}
-                    <span className="absolute top-2 right-2.5 text-[8px] font-mono text-emerald-500 uppercase font-black tracking-widest">[ COPA_CORE ]</span>
-
-                    {/* Main tilted device mockup for unmatched Framer-style presentation */}
-                    <div className="h-[95%] w-auto max-w-full rounded-2xl overflow-hidden border border-white/10 bg-[#080808] flex flex-col justify-between shadow-2xl relative transform hover:scale-[1.03] hover:-rotate-1 duration-300">
-                      <div className="flex-1 overflow-hidden p-2 bg-neutral-950 flex items-center justify-center">
-                        <img 
-                          src="https://lh3.googleusercontent.com/d/1USC36e4Z3Q69Moxv8c-fr0nZQ1U5IaAd" 
-                          alt="Mundial main album screen illustration" 
-                          referrerPolicy="no-referrer"
-                          className="h-full object-contain rounded-lg shadow-xl"
-                        />
-                      </div>
-                      <div className="py-2 bg-[#031209] border-t border-white/5 text-[8.5px] font-mono font-bold text-emerald-400 text-center uppercase tracking-wider">
-                        Álbum & Monitoreo
-                      </div>
-                    </div>
+                    <img 
+                      src="https://lh3.googleusercontent.com/d/1xsDOzoEBGZOux8VihtVLosyo6jsDz3Jq" 
+                      alt="Mundial 2026 Premium Showcase" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-[1.03] rounded-xl"
+                    />
                   </div>
-                </div>
-
-                {/* Bottom Action Grid */}
-                <div className="pt-5 grid grid-cols-2 gap-2.5 relative z-10 w-full">
-                  <button
-                    onClick={() => {
-                      setActiveApp('mundial-2026');
-                      document.getElementById('landing-root')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                      activeApp === 'mundial-2026'
-                        ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.15)]'
-                        : 'bg-neutral-900 border border-white/5 text-zinc-300 hover:bg-neutral-800'
-                    }`}
-                  >
-                    <Smartphone className="w-3.5 h-3.5" />
-                    <span>Simular</span>
-                  </button>
-                  <a
-                    href="https://mundial2026.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-black hover:bg-neutral-100 text-center cursor-pointer"
-                  >
-                    <span>Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
                 </div>
               </div>
 
               {/* CARD: PEQUEÑOS GOURMETS (Refined Violet Showcase) */}
-              <div className={`group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden ${
-                activeApp === 'pequenos-gourmets'
-                  ? 'border-violet-500/30 bg-gradient-to-b from-[#120524] via-neutral-950 to-neutral-950/90 ring-1 ring-violet-500/10 shadow-[0_0_50px_rgba(139,92,246,0.06),inset_0_1px_1px_rgba(255,255,255,0.02)]'
-                  : 'border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-violet-500/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.04)]'
-              }`}>
+              <div className="group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-violet-500/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.04)]">
                 {/* Violet ambient aura */}
                 <div className="absolute right-0 bottom-0 w-48 h-48 bg-violet-500/[0.03] group-hover:bg-violet-500/[0.05] rounded-full blur-[80px] pointer-events-none transition-all duration-300" />
                 
@@ -786,11 +684,6 @@ export default function App() {
                       <span className="text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 border-violet-500/25 text-violet-400">
                         Nutrición & Crianza
                       </span>
-                      {activeApp === 'pequenos-gourmets' && (
-                        <span className="text-[9px] font-mono text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-0.5 rounded-full uppercase font-bold animate-pulse">
-                          En Simulador
-                        </span>
-                      )}
                     </div>
 
                     <div className="space-y-1.5 text-left">
@@ -816,58 +709,20 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Center beautiful image container */}
-                  <div className="bg-gradient-to-b from-[#0c021c] to-[#040404] p-4 rounded-2xl border border-white/5 shadow-inner h-[290px] sm:h-[320px] flex items-center justify-center relative overflow-hidden select-none">
+                  {/* Premium Showcase Image directly placed and styled */}
+                  <div className="bg-gradient-to-b from-[#0c021c] to-[#040404] p-1.5 rounded-2xl border border-white/5 shadow-inner h-[290px] sm:h-[320px] flex items-center justify-center relative overflow-hidden select-none">
                     <div className="absolute inset-0 bg-[radial-gradient(#ffffff01_1px,transparent_1px)] [background-size:12px_12px] pointer-events-none" />
                     
                     {/* Shadow Backing Aura */}
                     <div className="absolute w-36 h-36 bg-violet-500/10 blur-[40px] pointer-events-none" />
                     
-                    {/* Floating Tech indicator */}
-                    <span className="absolute top-2 right-2.5 text-[8px] font-mono text-violet-500 uppercase font-black tracking-widest">[ BLW_LOGIC ]</span>
-
-                    {/* Main tilted device mockup for unmatched Framer-style presentation */}
-                    <div className="h-[95%] w-auto max-w-full rounded-2xl overflow-hidden border border-white/10 bg-[#080808] flex flex-col justify-between shadow-2xl relative transform hover:scale-[1.03] hover:rotate-1 duration-300">
-                      <div className="flex-1 overflow-hidden p-2 bg-neutral-950 flex items-center justify-center">
-                        <img 
-                          src="https://lh3.googleusercontent.com/d/1UujhDgmstWOBzQ6ovEu2NmEDL4obAUBO" 
-                          alt="Pequeños Gourmets Menu Screen Preview" 
-                          referrerPolicy="no-referrer"
-                          className="h-full object-contain rounded-lg shadow-xl"
-                        />
-                      </div>
-                      <div className="py-2 bg-[#0e071a] border-t border-white/5 text-[8.5px] font-mono font-bold text-violet-400 text-center uppercase tracking-wider">
-                        Menú Saludable Smart
-                      </div>
-                    </div>
+                    <img 
+                      src="https://lh3.googleusercontent.com/d/1LsieTUpKhMnGbxnWw8-wcfWfMaNuOFrM" 
+                      alt="Pequeños Gourmets Premium Showcase" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-[1.03] rounded-xl"
+                    />
                   </div>
-                </div>
-
-                {/* Bottom Action Grid */}
-                <div className="pt-5 grid grid-cols-2 gap-2.5 relative z-10 w-full">
-                  <button
-                    onClick={() => {
-                      setActiveApp('pequenos-gourmets');
-                      document.getElementById('landing-root')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                      activeApp === 'pequenos-gourmets'
-                        ? 'bg-violet-500/20 border border-violet-500/40 text-violet-300 shadow-[0_0_15px_rgba(139,92,246,0.15)]'
-                        : 'bg-neutral-900 border border-white/5 text-zinc-300 hover:bg-neutral-800'
-                    }`}
-                  >
-                    <Smartphone className="w-3.5 h-3.5" />
-                    <span>Simular</span>
-                  </button>
-                  <a
-                    href="https://pequenosgourmets.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-black hover:bg-neutral-100 text-center cursor-pointer"
-                  >
-                    <span>Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
                 </div>
               </div>
 
@@ -1006,14 +861,12 @@ export default function App() {
             ))}
           </div>
 
-          <div className="text-center pt-4">
-            <button
+          <div className="flex justify-center pt-4 select-none">
+            <PremiumCTAButton 
               onClick={handleOpenReservar}
-              className="bg-neutral-900 text-white border border-white/10 hover:border-emerald-500/40 hover:bg-neutral-850 px-8 py-4.5 rounded-2xl text-xs font-bold tracking-widest uppercase transition-all shadow-xl hover:shadow-emerald-500/5 active:scale-95 cursor-pointer inline-flex items-center gap-2 group"
-            >
-              <span>CONFIRMAR INSCRIPCIÓN AL TEMARIO</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </button>
+              size="lg"
+              className="w-full max-w-sm"
+            />
           </div>
         </div>
       </section>
@@ -1083,14 +936,12 @@ export default function App() {
               No dejes nada al azar. Además del aula en directo, tendrás todos los recursos complementarios necesarios para ejecutar tu idea sin retrasos de ningún tipo.
             </p>
 
-            <div className="pt-2">
-              <button
+            <div className="pt-2 select-none">
+              <PremiumCTAButton 
                 onClick={handleOpenReservar}
-                className="bg-white hover:bg-zinc-100 text-black font-display font-black tracking-widest uppercase py-4 px-8 rounded-xl text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95"
-              >
-                <span>ACCEDER A TODO POR $24.99 USD</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                size="md"
+                className="w-full sm:w-auto"
+              />
             </div>
           </div>
 
@@ -1398,13 +1249,13 @@ export default function App() {
               ))}
             </div>
 
-            <button
-              onClick={handleOpenReservar}
-              className="w-full bg-gradient-to-r from-violet-600 via-indigo-650 to-emerald-500 py-4.5 px-6 rounded-2xl text-xs font-black tracking-widest uppercase text-white hover:opacity-95 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-violet-500/10 cursor-pointer"
-            >
-              <span>RESERVAR MI CUPO AHORA</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="select-none pt-2">
+              <PremiumCTAButton 
+                onClick={handleOpenReservar}
+                size="lg"
+                className="w-full"
+              />
+            </div>
 
             <p className="text-[10px] text-zinc-500 leading-normal">
               * Compra totalmente segura. Si en los primeros 15 días posteriores al taller decides que no es para ti, te reembolsamos el 100% de tu dinero de manera automática.
