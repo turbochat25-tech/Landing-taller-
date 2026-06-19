@@ -28,6 +28,7 @@ import { APPS_DATA, PROBLEM_COMPARISON, WHAT_YOU_WILL_LEARN, FAQ_DATA } from './
 import MockDeviceWrapper from './components/MockDeviceWrapper';
 import ReservarModal from './components/ReservarModal';
 import PremiumCTAButton from './components/PremiumCTAButton';
+import LibraryShowcase from './components/LibraryShowcase';
 
 // High-fidelity Framer-style mockup imports
 import profitFitnessImg from './assets/images/profit_fitness_mockup_1781845539931.jpg';
@@ -98,7 +99,14 @@ export default function App() {
   };
 
   return (
-    <div id="landing-root" className="min-h-screen bg-black text-[#fafafa] font-sans antialiased overflow-x-hidden selection:bg-neutral-800 selection:text-white">
+    <div id="landing-root" className="min-h-screen bg-[#03010a] text-[#fafafa] font-sans antialiased overflow-x-hidden selection:bg-violet-950/80 selection:text-white relative">
+      {/* Global Background glow & subtle ambient auroras across the entire page */}
+      <div className="absolute top-0 inset-x-0 h-[1000px] bg-gradient-to-b from-indigo-500/[0.04] via-transparent to-transparent pointer-events-none -z-20" />
+      <div className="absolute top-[1800px] right-0 w-[800px] h-[800px] bg-emerald-500/[0.015] rounded-full blur-[160px] pointer-events-none -z-20" />
+      <div className="absolute top-[3200px] left-0 w-[800px] h-[800px] bg-violet-600/[0.012] rounded-full blur-[160px] pointer-events-none -z-20" />
+      <div className="absolute top-[4800px] right-10 w-[700px] h-[700px] bg-indigo-500/[0.015] rounded-full blur-[150px] pointer-events-none -z-20" />
+      <div className="absolute bottom-[1000px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-emerald-500/[0.012] rounded-full blur-[180px] pointer-events-none -z-20" />
+
       {/* Top urgence banner */}
       <div className="bg-gradient-to-r from-[#0d071a] via-black to-[#031409] border-b border-white/5 text-center py-2 px-4 relative z-50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs font-semibold tracking-wider text-white">
@@ -170,55 +178,60 @@ export default function App() {
       </header>
 
       {/* SECCIÓN 1 - HERO */}
-      <section className="relative pt-16 pb-28 md:pt-24 md:pb-36 overflow-hidden px-6">
-        {/* Ambient background glows */}
-        <div className="absolute top-1/4 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[150px] pointer-events-none -z-10" />
-        <div className="absolute top-1/3 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[150px] bg-gradient-to-r from-violet-600/5 to-emerald-600/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <section className="relative pt-10 pb-16 sm:pt-16 sm:pb-28 md:pt-24 md:pb-36 overflow-hidden px-5 sm:px-6">
+        {/* Ambient background glows / Aurora with deeper, high-end tech blurs */}
+        <div className="absolute top-1/4 left-1/4 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-indigo-500/[0.12] rounded-full blur-[120px] sm:blur-[180px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 right-1/4 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-emerald-500/[0.08] rounded-full blur-[110px] sm:blur-[160px] pointer-events-none -z-10 animate-pulse" />
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[400px] sm:w-[800px] h-[120px] sm:h-[180px] bg-gradient-to-r from-violet-600/[0.06] to-emerald-500/[0.06] rounded-full blur-[100px] sm:blur-[160px] pointer-events-none -z-10" />
         
-        {/* Framer Grid Background Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_20%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
+        {/* Dynamic technology spotlight beam from top center */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-b from-violet-500/[0.03] to-transparent rounded-full blur-[90px] pointer-events-none -z-10" />
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Framer Grid Background Overlay with precise radial vignette masking */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_25%,#000_65%,transparent_100%)] pointer-events-none -z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1.5px,transparent_1.5px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_25%,#000_65%,transparent_100%)] pointer-events-none -z-10" />
+ 
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Hero Column */}
-          <div className="lg:col-span-7 space-y-8 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900/85 border border-white/5 backdrop-blur-sm shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-              <span className="flex h-2 w-2 relative">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-8 text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-neutral-900/60 border border-white/[0.06] backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.05)]">
+              <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase text-zinc-400">
+              <span className="text-[11.5px] xs:text-[12px] sm:text-xs font-mono font-bold tracking-wider uppercase text-zinc-400">
                 Aprende a vender tecnología de alto valor percibido
               </span>
             </div>
-
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-display tracking-tight leading-[1.08] text-white">
-                Crea, publica y vende <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-400 to-emerald-400 drop-shadow-[0_2px_10px_rgba(16,185,129,0.15)]">aplicaciones web</span> con IA sin saber programar
+  
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-[36px] xs:text-[40px] sm:text-5xl md:text-6xl font-black font-display tracking-tight leading-[1.1] sm:leading-[1.08] text-white">
+                Crea, publica y vende <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-350 to-emerald-400 drop-shadow-[0_2px_15px_rgba(139,92,246,0.2)]">aplicaciones web</span> con IA sin saber programar
               </h1>
-              <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
+              <p className="text-[18px] xs:text-[19px] sm:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
                 Aprende a construir aplicaciones reales para complementar tus productos digitales, diferenciarte de la competencia o venderlas directamente por internet.
               </p>
             </div>
-
-            {/* Quick Pricing block */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-neutral-950 to-neutral-900 border border-white/5 max-w-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+  
+            {/* Quick Pricing block with enhanced Linear-like dark glass */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#07050e]/95 to-[#0e0c15]/95 border border-white/[0.07] max-w-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.06),0_12px_40px_rgba(0,0,0,0.8)] hover:border-emerald-500/30 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-violet-500/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-1 relative z-10">
-                <span className="text-[10px] font-mono tracking-widest text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full uppercase border border-emerald-500/15">
+                <span className="text-[11px] sm:text-[10px] font-mono tracking-widest text-emerald-450 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded-full uppercase border border-emerald-500/20">
                   Acceso Total Garantizado
                 </span>
-                <p className="text-xs text-zinc-400">Incluye soporte personalizado por 15 días</p>
+                <p className="text-[14px] sm:text-xs text-zinc-400 font-light">Incluye soporte personalizado por 15 días</p>
               </div>
               <div className="flex items-baseline gap-2 shrink-0 relative z-10">
-                <span className="text-xs text-zinc-500 line-through font-mono">$199.00 USD</span>
-                <span className="text-2xl font-extrabold text-white font-display">USD 24.99</span>
+                <span className="text-[14px] sm:text-xs text-zinc-650 line-through font-mono">$199.00 USD</span>
+                <span className="text-[26px] sm:text-2xl font-extrabold text-white font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-300">USD 24.99</span>
               </div>
             </div>
 
             {/* Hero CTA Button */}
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
               <PremiumCTAButton 
                 onClick={handleOpenReservar} 
                 size="lg" 
@@ -227,7 +240,7 @@ export default function App() {
               
               <a 
                 href="#aplicaciones" 
-                className="text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest text-center py-4.5 sm:px-4 flex items-center justify-center gap-1.5 transition-all group"
+                className="text-[14px] sm:text-xs font-bold text-neutral-400 hover:text-white uppercase tracking-widest text-center py-3 sm:py-4.5 sm:px-4 flex items-center justify-center gap-1.5 transition-all group cursor-pointer"
               >
                 <span>Ver demostraciones interactivas</span>
                 <ChevronDown className="w-4 h-4 animate-bounce group-hover:text-emerald-400" />
@@ -235,7 +248,7 @@ export default function App() {
             </div>
 
             {/* Bullet List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-4 border-t border-neutral-900">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 sm:gap-y-3 pt-3.5 sm:pt-4 border-t border-neutral-900">
               {[
                 'Taller práctico en vivo y paso a paso',
                 'Grabaciones completas incluidas de por vida',
@@ -243,7 +256,7 @@ export default function App() {
                 'Estrategias de venta avanzadas sin seguidores',
                 'Uso de herramientas gratuitas y accesibles'
               ].map((bullet, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs text-zinc-350 hover:text-white transition-colors">
+                <div key={idx} className="flex items-start gap-2.5 text-[14px] sm:text-xs text-zinc-350 hover:text-white transition-colors">
                   <div className="w-4.5 h-4.5 rounded-full bg-emerald-500/10 border border-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
                     <Check className="w-3 h-3" />
                   </div>
@@ -254,7 +267,7 @@ export default function App() {
           </div>
 
           {/* Right Hero Column: Clickable Floating Collage surrounding Device */}
-          <div className="lg:col-span-5 relative flex flex-col justify-center items-center mt-8 lg:mt-0">
+          <div className="lg:col-span-5 relative flex flex-col justify-center items-center mt-4 sm:mt-8 lg:mt-0">
             
             {/* The interactive device mockup containing the current active app simulator */}
             <div className="relative z-10 w-full flex justify-center">
@@ -347,51 +360,56 @@ export default function App() {
             </motion.div>
 
           </div>
+
         </div>
       </section>
 
-         {/* SECCIÓN CREST: BANDA DE CREDIBILIDAD TRANSICIONAL */}
-      <section className="py-16 border-y border-white/5 bg-neutral-950/80 px-6 relative overflow-hidden">
+      {/* SECCIÓN CREST: BANDA DE CREDIBILIDAD TRANSICIONAL */}
+      <section className="py-10 sm:py-16 border-y border-white/[0.06] bg-gradient-to-r from-[#03010a] via-[#090615] to-[#03010a] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle decorative top/bottom glowing thin border lines */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-violet-500/30 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent pointer-events-none" />
+        
         {/* Subtle dot matrix pattern to reduce empty space and feel high-tech */}
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1.2px,transparent_1.2px)] [background-size:20px_20px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-16">
-            <div className="space-y-3 max-w-sm shrink-0">
-              <span className="inline-flex items-center gap-1.5 text-[9px] font-mono tracking-widest font-extrabold uppercase bg-emerald-500/10 text-emerald-400 px-3.5 py-1 rounded-full border border-emerald-500/25 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-10 lg:gap-16">
+            <div className="space-y-2 sm:space-y-3 max-w-sm shrink-0">
+              <span className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-[9px] font-mono tracking-widest font-extrabold uppercase bg-emerald-500/10 text-emerald-400 px-3.5 py-1 rounded-full border border-emerald-500/25 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
                 <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
                 PRODUCCIÓN REALÍSIMA
               </span>
-              <h3 className="text-2xl sm:text-3xl font-black font-display text-white tracking-tight leading-tight uppercase">
+              <h3 className="text-[26px] xs:text-[28px] sm:text-3xl font-black font-display text-white tracking-tight leading-tight uppercase">
                 Aplicaciones reales.<br />
                 <span className="text-zinc-500 block sm:inline">No conceptos.</span>
               </h3>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-              <div className="p-5 bg-neutral-900/10 border border-white/5 rounded-2xl relative overflow-hidden group hover:border-emerald-500/20 hover:bg-neutral-900/30 transition-all duration-300">
-                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-emerald-500/5 transition-all">01</div>
-                <p className="text-2xl sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-emerald-400 transition-colors">+4</p>
-                <p className="text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Aplicaciones funcionales</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full">
+              <div className="p-4 sm:p-5 bg-white/[0.015] border border-white/[0.05] rounded-2xl relative overflow-hidden group hover:border-emerald-500/30 hover:bg-white/[0.03] transition-all duration-300 backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]">
+                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-emerald-500/10 transition-all">01</div>
+                <p className="text-[28px] sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-emerald-400 transition-colors">+4</p>
+                <p className="text-[11.5px] sm:text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Aplicaciones funcionales</p>
                 <div className="w-8 h-[2px] bg-emerald-500/50 rounded mt-3 group-hover:w-full transition-all duration-300" />
               </div>
-              <div className="p-5 bg-neutral-900/10 border border-white/5 rounded-2xl relative overflow-hidden group hover:border-blue-500/20 hover:bg-neutral-900/30 transition-all duration-300">
-                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-blue-500/5 transition-all">02</div>
-                <p className="text-2xl sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-blue-400 transition-colors">100%</p>
-                <p className="text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Publicadas en internet</p>
+              <div className="p-4 sm:p-5 bg-white/[0.015] border border-white/[0.05] rounded-2xl relative overflow-hidden group hover:border-blue-500/30 hover:bg-white/[0.03] transition-all duration-300 backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]">
+                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-blue-500/10 transition-all">02</div>
+                <p className="text-[28px] sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-blue-400 transition-colors">100%</p>
+                <p className="text-[11.5px] sm:text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Publicadas en internet</p>
                 <div className="w-8 h-[2px] bg-blue-500/50 rounded mt-3 group-hover:w-full transition-all duration-300" />
               </div>
-              <div className="p-5 bg-neutral-900/10 border border-white/5 rounded-2xl relative overflow-hidden group hover:border-amber-500/20 hover:bg-neutral-900/30 transition-all duration-300">
-                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-amber-500/5 transition-all">03</div>
-                <p className="text-2xl sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-amber-400 transition-colors">Listas</p>
-                <p className="text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Para compartir o vender</p>
+              <div className="p-4 sm:p-5 bg-white/[0.015] border border-white/[0.05] rounded-2xl relative overflow-hidden group hover:border-amber-500/30 hover:bg-white/[0.03] transition-all duration-300 backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]">
+                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-amber-500/10 transition-all">03</div>
+                <p className="text-[28px] sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-amber-400 transition-colors">Listas</p>
+                <p className="text-[11.5px] sm:text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Para compartir o vender</p>
                 <div className="w-8 h-[2px] bg-amber-500/50 rounded mt-3 group-hover:w-full transition-all duration-300" />
               </div>
-              <div className="p-5 bg-neutral-900/10 border border-white/5 rounded-2xl relative overflow-hidden group hover:border-pink-500/20 hover:bg-neutral-900/30 transition-all duration-300">
-                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-pink-500/5 transition-all">04</div>
-                <p className="text-2xl sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-pink-400 transition-colors">IA Tech</p>
-                <p className="text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Construidas sin programar</p>
+              <div className="p-4 sm:p-5 bg-white/[0.015] border border-white/[0.05] rounded-2xl relative overflow-hidden group hover:border-pink-500/30 hover:bg-white/[0.03] transition-all duration-300 backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]">
+                <div className="absolute right-3 top-2 text-[26px] text-zinc-800/10 font-mono font-black select-none group-hover:text-pink-500/10 transition-all">04</div>
+                <p className="text-[28px] sm:text-3xl font-black text-white font-display tracking-tight leading-none group-hover:text-pink-400 transition-colors">IA Tech</p>
+                <p className="text-[11.5px] sm:text-[10px] uppercase font-mono tracking-wider text-zinc-400 mt-2 font-medium">Construidas sin programar</p>
                 <div className="w-8 h-[2px] bg-pink-500/50 rounded mt-3 group-hover:w-full transition-all duration-300" />
               </div>
             </div>
@@ -400,22 +418,22 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 2 - APLICACIONES REALES (SaaS Premium Showcase) */}
-      <section id="aplicaciones" className="pb-28 pt-16 border-b border-white/5 bg-neutral-950 px-6 relative overflow-hidden">
-        {/* Subtle decorative grid lines to reduce emptiness and resemble Stripe/Framer premium canvas */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff02_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800/60 to-transparent pointer-events-none" />
-        <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-500/[0.015] rounded-full blur-[160px] pointer-events-none -z-10" />
-        <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-violet-600/[0.015] rounded-full blur-[140px] pointer-events-none -z-10" />
+      <section id="aplicaciones" className="pb-16 pt-10 sm:pb-28 sm:pt-16 border-b border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#050310] to-[#03010a] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle decorative grid lines and dot pattern to resemble Stripe/Framer premium canvas */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.025)_1.2px,transparent_1.2px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_65%_65%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-violet-500/20 to-transparent pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-500/[0.02] rounded-full blur-[160px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-violet-600/[0.025] rounded-full blur-[140px] pointer-events-none -z-10" />
 
-        <div className="max-w-7xl mx-auto space-y-16">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="inline-flex text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase bg-emerald-500/15 px-3.5 py-1.5 rounded-full border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.06)]">
+            <span className="inline-flex text-[11.5px] sm:text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase bg-emerald-500/15 px-3.5 py-1.5 rounded-full border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.06)]">
               SOFTWARE REAL EN PRODUCCIÓN
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight uppercase">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight uppercase">
               Aprende a Crear Productos Web Premium
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-zinc-400 text-[16px] sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
               No perderás tiempo con plantillas de prueba. Desarrollarás plataformas reales con diseños de primer nivel, adaptables e integrados con su lógica de negocio.
             </p>
           </div>
@@ -423,26 +441,26 @@ export default function App() {
           <div className="space-y-10">
             
             {/* 1. FLAGSHIP PRODUCT SHOWCASE: PROFIT FITNESS (Premium Launch Page Vibe with Beautiful Neon Emission) */}
-            <div className={`group rounded-3xl p-6 lg:p-10 transition-all duration-350 relative overflow-hidden border ${
+            <div className={`group rounded-3xl p-5 sm:p-6 lg:p-10 transition-all duration-350 relative overflow-hidden border ${
               activeApp === 'profit-fitness'
-                ? 'border-emerald-500/30 bg-gradient-to-b from-[#0a120e] via-neutral-900/60 to-black/90 ring-1 ring-emerald-500/10 shadow-[0_0_80px_rgba(16,185,129,0.08),inset_0_1px_1px_rgba(255,255,255,0.03)]'
-                : 'border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-emerald-500/25 hover:shadow-[0_0_40px_rgba(16,185,129,0.05)]'
+                ? 'border-emerald-500/30 bg-gradient-to-b from-[#030a05] via-neutral-900/60 to-black/95 ring-1 ring-emerald-500/10 shadow-[0_0_80px_rgba(16,185,129,0.08),inset_0_1px_1.5px_rgba(255,255,255,0.04)]'
+                : 'border-white/5 bg-gradient-to-b from-neutral-900/15 via-neutral-900/5 to-neutral-950/90 hover:border-emerald-500/25 hover:shadow-[0_0_40px_rgba(16,185,129,0.05)]'
             }`}>
               
               {/* Backlight emerald aura mimicking high tech product launches */}
-              <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[60%] bg-emerald-500/[0.04] group-hover:bg-emerald-500/[0.06] rounded-full blur-[150px] transition-all duration-500 pointer-events-none" />
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent pointer-events-none" />
+              <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[60%] bg-emerald-500/[0.05] group-hover:bg-emerald-500/[0.07] rounded-full blur-[150px] transition-all duration-500 pointer-events-none" />
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/25 to-transparent pointer-events-none" />
               
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center relative z-10">
                 
                 {/* Left Description Side - Highly focused premium copy (30%) */}
-                <div className="lg:col-span-4 space-y-6 text-left">
+                <div className="lg:col-span-4 space-y-5 sm:space-y-6 text-left">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[9px] font-mono tracking-widest font-extrabold uppercase bg-emerald-500/15 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/25">
+                    <span className="text-[10.5px] sm:text-[9px] font-mono tracking-widest font-extrabold uppercase bg-emerald-500/15 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/25">
                       EL PROYECTO INSIGNIA PEAK
                     </span>
                     {activeApp === 'profit-fitness' && (
-                      <span className="flex items-center gap-1.5 text-[9px] font-mono text-emerald-400 uppercase font-black bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20 select-none animate-pulse">
+                      <span className="flex items-center gap-1.5 text-[10.5px] sm:text-[9px] font-mono text-emerald-400 uppercase font-black bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20 select-none animate-pulse">
                         <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
                         Simulado
                       </span>
@@ -450,10 +468,10 @@ export default function App() {
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black font-display text-white tracking-tight leading-none uppercase">
+                    <h3 className="text-[28px] sm:text-3xl lg:text-4xl font-black font-display text-white tracking-tight leading-none uppercase">
                       Profit Fitness
                     </h3>
-                    <p className="text-zinc-400 text-xs sm:text-sm font-normal leading-relaxed">
+                    <p className="text-zinc-400 text-[14.5px] sm:text-sm font-normal leading-relaxed">
                       Aplicación fitness premium con seguimiento de retos, planes calóricos detallados, medidores de macros e hidratación y progresión inteligente.
                     </p>
                   </div>
@@ -565,37 +583,37 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               
               {/* CARD: COPA FAMILY 2026 (Refined Violet Showcase) */}
-              <div className="group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-violet-500/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.04)]">
+              <div className="group rounded-3xl p-5 sm:p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/[0.05] bg-gradient-to-b from-[#0e0a1c]/25 via-neutral-950/85 to-[#03010c] hover:border-violet-500/35 hover:shadow-[0_0_50px_rgba(139,92,246,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)]">
                 {/* Violet ambient aura */}
                 <div className="absolute right-0 bottom-0 w-48 h-48 bg-violet-500/[0.03] group-hover:bg-violet-500/[0.05] rounded-full blur-[80px] pointer-events-none transition-all duration-300" />
                 
                 <div className="space-y-6 flex flex-col h-full justify-between relative z-10">
-                  {/* Top Text Meta Portion */}
+                  {/* Bottom Text Meta Portion */}
                   <div className="space-y-3.5">
                     <div className="flex justify-between items-center">
-                      <span className="text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 border-violet-500/25 text-violet-400">
+                      <span className="text-[10.5px] sm:text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 border-violet-500/25 text-violet-400">
                         Gestor Deportivo
                       </span>
                     </div>
 
                     <div className="space-y-1.5 text-left">
-                      <h4 className="text-lg font-black text-white tracking-tight group-hover:text-violet-300 transition-colors uppercase leading-none">
+                      <h4 className="text-[20px] sm:text-lg font-black text-white tracking-tight group-hover:text-violet-300 transition-colors uppercase leading-none">
                         Copa Family 2026
                       </h4>
-                      <p className="text-zinc-400 text-xs font-normal leading-relaxed">
+                      <p className="text-zinc-400 text-[14.5px] sm:text-sm font-normal leading-relaxed">
                         Sistema para torneos, rankings y gestión de resultados.
                       </p>
                     </div>
 
                     {/* App Visual Tags */}
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         ⚽ Torneos
                       </span>
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         📊 Rankings
                       </span>
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         🏆 Resultados
                       </span>
                     </div>
@@ -619,7 +637,7 @@ export default function App() {
               </div>
 
               {/* CARD: MUNDIAL 2026 (Refined Emerald Showcase) */}
-              <div className="group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-emerald-500/20 hover:shadow-[0_0_30px_rgba(16,185,129,0.04)]">
+              <div className="group rounded-3xl p-5 sm:p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/[0.05] bg-gradient-to-b from-[#030d06]/25 via-neutral-950/85 to-[#03010c] hover:border-emerald-500/35 hover:shadow-[0_0_50px_rgba(16,185,129,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)]">
                 {/* Emerald ambient aura */}
                 <div className="absolute right-0 bottom-0 w-48 h-48 bg-emerald-500/[0.03] group-hover:bg-emerald-500/[0.05] rounded-full blur-[80px] pointer-events-none transition-all duration-300" />
                 
@@ -627,29 +645,29 @@ export default function App() {
                   {/* Top Text Portion */}
                   <div className="space-y-3.5">
                     <div className="flex justify-between items-center">
-                      <span className="text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-emerald-500/10 border-emerald-500/25 text-emerald-400">
+                      <span className="text-[10.5px] sm:text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-emerald-500/10 border-emerald-500/25 text-emerald-400">
                         Gamificación
                       </span>
                     </div>
 
                     <div className="space-y-1.5 text-left">
-                      <h4 className="text-lg font-black text-white tracking-tight group-hover:text-emerald-300 transition-colors uppercase leading-none">
+                      <h4 className="text-[20px] sm:text-lg font-black text-white tracking-tight group-hover:text-emerald-300 transition-colors uppercase leading-none">
                         Mundial 2026
                       </h4>
-                      <p className="text-zinc-400 text-xs font-normal leading-relaxed">
+                      <p className="text-zinc-400 text-[14.5px] sm:text-sm font-normal leading-relaxed">
                         Aplicación interactiva para seguimiento y control del álbum mundialista.
                       </p>
                     </div>
 
                     {/* App Visual Tags */}
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         🌎 Mundial
                       </span>
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         📱 PWA
                       </span>
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         🎮 Gamificación
                       </span>
                     </div>
@@ -673,7 +691,7 @@ export default function App() {
               </div>
 
               {/* CARD: PEQUEÑOS GOURMETS (Refined Violet Showcase) */}
-              <div className="group rounded-3xl p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/5 bg-gradient-to-b from-neutral-900/20 via-neutral-900/10 to-neutral-950/80 hover:border-violet-500/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.04)]">
+              <div className="group rounded-3xl p-5 sm:p-6 transition-all duration-350 flex flex-col justify-between hover:-translate-y-1.5 border relative overflow-hidden border-white/[0.05] bg-gradient-to-b from-[#0e0a1c]/25 via-neutral-950/85 to-[#03010c] hover:border-violet-500/35 hover:shadow-[0_0_50px_rgba(139,92,246,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)]">
                 {/* Violet ambient aura */}
                 <div className="absolute right-0 bottom-0 w-48 h-48 bg-violet-500/[0.03] group-hover:bg-violet-500/[0.05] rounded-full blur-[80px] pointer-events-none transition-all duration-300" />
                 
@@ -681,29 +699,29 @@ export default function App() {
                   {/* Top Text Portion */}
                   <div className="space-y-3.5">
                     <div className="flex justify-between items-center">
-                      <span className="text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 border-violet-500/25 text-violet-400">
+                      <span className="text-[10.5px] sm:text-[9px] font-mono tracking-wider font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 border-violet-500/25 text-violet-400">
                         Nutrición & Crianza
                       </span>
                     </div>
 
                     <div className="space-y-1.5 text-left">
-                      <h4 className="text-lg font-black text-white tracking-tight group-hover:text-violet-300 transition-colors uppercase leading-none">
+                      <h4 className="text-[20px] sm:text-lg font-black text-white tracking-tight group-hover:text-violet-300 transition-colors uppercase leading-none">
                         Pequeños Gourmets
                       </h4>
-                      <p className="text-zinc-400 text-xs font-normal leading-relaxed">
+                      <p className="text-zinc-400 text-[14.5px] sm:text-sm font-normal leading-relaxed">
                         Planificador inteligente de alimentación infantil.
                       </p>
                     </div>
 
                     {/* App Visual Tags */}
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         👶 Crianza
                       </span>
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         🥗 Nutrición
                       </span>
-                      <span className="text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
+                      <span className="text-[11.5px] sm:text-[10px] font-bold text-white bg-neutral-950/80 border border-white/5 px-2.5 py-1 rounded-lg">
                         📱 PWA
                       </span>
                     </div>
@@ -730,32 +748,36 @@ export default function App() {
           </div>
 
 
-          <div className="p-8 rounded-3xl bg-neutral-900/25 border border-white/5 text-center max-w-4xl mx-auto space-y-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] relative overflow-hidden group">
+          <div className="p-5 sm:p-8 rounded-3xl bg-neutral-900/25 border border-white/5 text-center max-w-4xl mx-auto space-y-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
-            <span className="relative z-10 text-[10px] font-mono font-bold tracking-wider uppercase text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+            <span className="relative z-10 text-[11.5px] sm:text-[10px] font-mono font-bold tracking-wider uppercase text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
               ¡No requieres pagar dominios ni servidores sofisticados!
             </span>
-            <p className="relative z-10 text-xs sm:text-sm text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="relative z-10 text-[14.5px] sm:text-sm text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed">
               En el taller en vivo aprenderás a clonar y adaptar estas plantillas modulares a cualquier tipo de negocio. Te llevarás listos el dominio, el certificado de seguridad y la pasarela de pagos simulada o real.
             </p>
           </div>
         </div>
       </section>
 
-      {/* SECCIÓN 3 - EL PROBLEMA & COMPARATIVA */}
-      <section id="comparativa" className="py-24 border-t border-white/5 bg-black px-6 relative overflow-hidden">
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-red-600/[0.01]/[0.01] rounded-full blur-[140px] pointer-events-none -z-10" />
-        <div className="absolute top-1/3 left-10 w-[350px] h-[350px] bg-violet-600/[0.04] rounded-full blur-[120px] pointer-events-none -z-10" />
+      <LibraryShowcase />
 
-        <div className="max-w-7xl mx-auto space-y-16 relative z-10">
+      {/* SECCIÓN 3 - EL PROBLEMA & COMPARATIVA */}
+      <section id="comparativa" className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#05030f] to-[#03010b] px-5 sm:px-6 relative overflow-hidden">
+        {/* Decorative Grid matching Framer/Apple feel */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-red-600/[0.01] rounded-full blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 left-10 w-[350px] h-[350px] bg-violet-600/[0.05] rounded-full blur-[120px] pointer-events-none -z-10" />
+
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-red-400 uppercase bg-red-950/25 px-3 py-1 rounded-full border border-red-900/30">
+            <span className="text-[13.5px] sm:text-xs font-mono font-bold tracking-widest text-red-400 uppercase bg-red-950/25 px-3 py-1 rounded-full border border-red-900/30">
               EL ESCENARIO REAL DEL MERCADO
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
               La mayoría vende exactamente lo mismo
             </h2>
-            <p className="text-zinc-450 text-sm sm:text-base font-light">
+            <p className="text-zinc-450 text-[16px] sm:text-base font-light">
               La era de los infoproductos aburridos y estáticos se está terminando. Los clientes modernos ignoran los archivos PDF gigantes y prefieren experiencias interactivas ágiles.
             </p>
           </div>
@@ -764,20 +786,20 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
             
             {/* Left Box: Muted Unproductive traditional offer */}
-            <div className="bg-neutral-950/20 border border-white/5 rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden group shadow-2xl">
+            <div className="bg-[#0c0a15]/30 border border-white/[0.05] rounded-3xl p-5 sm:p-8 space-y-6 relative overflow-hidden group shadow-2xl backdrop-blur-md">
               <div className="space-y-3">
-                <span className="text-[9px] font-mono text-zinc-500 uppercase font-black bg-neutral-900 px-2.5 py-0.5 rounded border border-white/5">
+                <span className="text-[10.5px] sm:text-[9px] font-mono text-zinc-500 uppercase font-black bg-neutral-900 px-2.5 py-0.5 rounded border border-white/5">
                   La oferta aburrida (Bajo valor estático)
                 </span>
-                <h4 className="text-lg font-bold text-zinc-400 transition-colors group-hover:text-zinc-300 font-display">Contenido en PDF y videos estáticos</h4>
-                <p className="text-xs text-zinc-500 font-light leading-relaxed">
+                <h4 className="text-[20px] sm:text-lg font-bold text-zinc-400 transition-colors group-hover:text-zinc-300 font-display">Contenido en PDF y videos estáticos</h4>
+                <p className="text-[14.5px] sm:text-xs text-zinc-500 font-light leading-relaxed">
                   Contiene información valiosa, pero al requerir tanto esfuerzo del usuario para implementarse, produce baja retención y es muy difícil de comercializar por más de $15 USD.
                 </p>
               </div>
 
               <div className="space-y-3.5 border-t border-white/5 pt-6">
                 {PROBLEM_COMPARISON.left.items.map((item, id) => (
-                  <div key={id} className="flex items-start gap-3 text-xs text-zinc-500">
+                  <div key={id} className="flex items-start gap-3 text-[14px] sm:text-xs text-zinc-500">
                     <span className="text-rose-500 mt-0.5 shrink-0 block">✕</span>
                     <span>{item.text}</span>
                   </div>
@@ -786,24 +808,24 @@ export default function App() {
             </div>
 
             {/* Right Box: Premium Interactive glowing workshop proposal */}
-            <div className="bg-gradient-to-br from-[#0a0515] to-[#04020a] border border-violet-500/30 rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden group shadow-[0_0_50px_rgba(139,12,254,0.1)]">
+            <div className="bg-gradient-to-br from-[#0c0520]/80 to-[#04020a]/95 border border-violet-500/40 rounded-3xl p-5 sm:p-8 space-y-6 relative overflow-hidden group shadow-[0_0_80px_rgba(139,92,246,0.12),inset_0_1px_1.5px_rgba(255,255,255,0.04)] backdrop-blur-md">
               {/* Corner ambient violet glow */}
               <div className="absolute -top-12 -right-12 w-48 h-48 bg-violet-600/20 rounded-full blur-[60px] pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-violet-500/5 opacity-50 pointer-events-none" />
 
               <div className="space-y-3">
-                <span className="text-[9px] font-mono text-violet-300 uppercase font-black bg-violet-500/10 px-2.5 py-0.5 rounded border border-violet-500/25 inline-flex items-center gap-1">
+                <span className="text-[10.5px] sm:text-[9px] font-mono text-violet-300 uppercase font-black bg-violet-500/10 px-2.5 py-0.5 rounded border border-violet-500/25 inline-flex items-center gap-1">
                   <Sparkles className="w-2.5 h-2.5" /> la oferta premium (Valor percibido 10X)
                 </span>
-                <h4 className="text-lg font-bold text-white transition-colors group-hover:text-violet-300 font-display">Combinación: Infoproducto + Aplicación Interactiva</h4>
-                <p className="text-xs text-zinc-400 font-light leading-relaxed">
+                <h4 className="text-[20px] sm:text-lg font-bold text-white transition-colors group-hover:text-violet-300 font-display">Combinación: Infoproducto + Aplicación Interactiva</h4>
+                <p className="text-[14.5px] sm:text-xs text-zinc-400 font-light leading-relaxed">
                   Ofreces la información junto con una herramienta interactiva personalizada que calcula, traza y planifica en su móvil. Sus retornos son inmediatos y puedes cobrar recurrencias mensuales.
                 </p>
               </div>
 
               <div className="space-y-3.5 border-t border-white/5 pt-6 relative z-10">
                 {PROBLEM_COMPARISON.right.items.map((item, id) => (
-                  <div key={id} className="flex items-start gap-3 text-xs text-zinc-200 font-medium font-sans">
+                  <div key={id} className="flex items-start gap-3 text-[14px] sm:text-xs text-zinc-200 font-medium font-sans">
                     <span className="text-emerald-400 mt-0.5 shrink-0 block">✔</span>
                     <span>{item.text}</span>
                   </div>
@@ -814,7 +836,7 @@ export default function App() {
           </div>
 
           <div className="text-center pt-8 max-w-3xl mx-auto">
-            <p className="text-lg sm:text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-indigo-350 to-emerald-350 tracking-tight">
+            <p className="text-[21px] sm:text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-indigo-350 to-emerald-350 tracking-tight">
               "Las aplicaciones permiten diferenciar cualquier producto digital."
             </p>
           </div>
@@ -822,18 +844,21 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 4 - LO QUE APRENDERÁS */}
-      <section id="contenido" className="py-24 border-t border-white/5 bg-neutral-950/20 px-6 relative overflow-hidden">
+      <section id="contenido" className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#04020a] to-[#03010b] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle grid of Section 4 */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-600/[0.03] rounded-full blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-violet-600/[0.02] rounded-full blur-[130px] pointer-events-none -z-10" />
 
-        <div className="max-w-7xl mx-auto space-y-16">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#10b981] uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+            <span className="text-[13.5px] sm:text-xs font-mono font-bold tracking-widest text-[#10b981] uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
               TEMARIO PRÁCTICO DETALLADO
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
               Lo que podrás hacer después del taller
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-light">
+            <p className="text-zinc-400 text-[16px] sm:text-base font-light">
               Dividido en fases incrementales para asegurar que pases de la idea abstracta a tu pasarela de pagos funcionando de la forma más rápida y amena posible.
             </p>
           </div>
@@ -842,7 +867,7 @@ export default function App() {
             {WHAT_YOU_WILL_LEARN.map((item) => (
               <div 
                 key={item.number}
-                className="bg-neutral-900/25 border border-white/5 p-6 rounded-3xl transition-all duration-300 hover:border-emerald-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.08)] relative group"
+                className="bg-white/[0.015] border border-white/[0.05] p-5 sm:p-6 rounded-3xl transition-all duration-300 hover:border-emerald-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_50px_rgba(16,185,129,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] relative group backdrop-blur-md"
               >
                 {/* Float line indicators like Framer layout */}
                 <div className="absolute top-4 right-4 text-xs font-mono font-bold text-neutral-700 transition-colors group-hover:text-emerald-400">
@@ -850,10 +875,10 @@ export default function App() {
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="text-base font-bold text-white tracking-tight group-hover:text-emerald-300 transition-all font-display">
+                  <h4 className="text-[18px] sm:text-base font-bold text-white tracking-tight group-hover:text-emerald-300 transition-all font-display">
                     {item.title}
                   </h4>
-                  <p className="text-zinc-455 text-xs leading-relaxed font-light">
+                  <p className="text-zinc-400 text-[14px] sm:text-xs leading-relaxed font-light">
                     {item.description}
                   </p>
                 </div>
@@ -872,17 +897,20 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 5 - CÓMO FUNCIONA */}
-      <section id="como-funciona" className="py-24 border-t border-white/5 bg-black px-6 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[140px] pointer-events-none -z-10" />
-        <div className="max-w-7xl mx-auto space-y-16">
+      <section id="como-funciona" className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#05030f] to-[#03010a] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle grid of Section 5 */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/[0.025] rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" />
+        
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#10b981] uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+            <span className="text-[13.5px] sm:text-xs font-mono font-bold tracking-widest text-[#10b981] uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
               EL SISTEMA DE 4 PASOS
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
               ¿Cómo funciona el proceso?
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-light">
+            <p className="text-zinc-400 text-[16px] sm:text-base font-light">
               Desde el concepto básico en tu mente hasta el depósito de las primeras ventas de forma 100% automatizada.
             </p>
           </div>
@@ -890,7 +918,7 @@ export default function App() {
           {/* Connection line progress design layout */}
           <div className="relative max-w-4xl mx-auto">
             {/* Horizontal glowing line for desktop */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-violet-500 via-neutral-900 to-emerald-500 opacity-30 -translate-y-1/2 hidden md:block" />
+            <div className="absolute top-1/2 left-0 right-0 h-[1.5px] bg-gradient-to-r from-violet-500 via-indigo-600/30 to-[#10b981] opacity-60 -translate-y-1/2 hidden md:block" />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative z-10 text-center">
               {[
@@ -901,16 +929,16 @@ export default function App() {
               ].map((p, idx) => (
                 <div key={idx} className="space-y-4 group">
                   {/* Circle number */}
-                  <div className="mx-auto w-12 h-12 rounded-full bg-neutral-900 border border-white/5 text-lg flex items-center justify-center font-display font-bold shadow-lg shadow-violet-500/5 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.25)] transition-all duration-300 text-white relative">
+                  <div className="mx-auto w-12 h-12 rounded-full bg-[#0a0815] border border-white/[0.07] text-lg flex items-center justify-center font-display font-bold shadow-lg shadow-violet-500/5 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 text-white relative">
                     <span>{p.icon}</span>
-                    <span className="absolute -bottom-2 text-[8px] font-mono tracking-widest uppercase bg-neutral-950 px-1 rounded text-zinc-500 border border-white/5">
+                    <span className="absolute -bottom-2 text-[8px] font-mono tracking-widest uppercase bg-neutral-950 px-1.5 py-0.5 rounded text-zinc-400 border border-white/[0.08]">
                       {p.step}
                     </span>
                   </div>
 
                   <div className="space-y-1.5 px-4">
-                    <h4 className="text-base font-extrabold text-white tracking-tight group-hover:text-emerald-300 transition-colors">{p.title}</h4>
-                    <p className="text-zinc-400 text-xs leading-relaxed font-light">{p.desc}</p>
+                    <h4 className="text-[18px] sm:text-base font-extrabold text-white tracking-tight group-hover:text-emerald-300 transition-colors">{p.title}</h4>
+                    <p className="text-zinc-400 text-[14px] sm:text-xs leading-relaxed font-light">{p.desc}</p>
                   </div>
                 </div>
               ))}
@@ -920,19 +948,21 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 6 - QUÉ INCLUYE */}
-      <section className="py-24 border-t border-white/5 bg-neutral-950/20 px-6 relative overflow-hidden">
-        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-violet-600/[0.03] rounded-full blur-[140px] pointer-events-none -z-10" />
+      <section className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#04020a] to-[#03010b] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle grid of Section 6 */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-violet-600/[0.035] rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" />
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
           
           <div className="lg:col-span-6 space-y-6 text-left">
-            <span className="text-xs font-mono font-bold tracking-widest text-violet-400 bg-violet-500/10 px-3 py-1 rounded-full border border-violet-500/20">
+            <span className="text-[13.5px] sm:text-xs font-mono font-bold tracking-widest text-violet-400 bg-violet-500/10 px-3 py-1 rounded-full border border-violet-500/20">
               VALOR AGREGADO COMPLETO
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
               ¿Qué obtienes exactamente al inscribirte?
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-light leading-relaxed">
+            <p className="text-zinc-400 text-[16px] sm:text-base font-light leading-relaxed">
               No dejes nada al azar. Además del aula en directo, tendrás todos los recursos complementarios necesarios para ejecutar tu idea sin retrasos de ningún tipo.
             </p>
 
@@ -955,14 +985,14 @@ export default function App() {
             ].map((inc, i) => (
               <div 
                 key={i} 
-                className="bg-neutral-900/25 border border-white/5 p-4.5 rounded-2xl flex items-start gap-4 transition-all duration-300 hover:border-violet-500/20 hover:bg-neutral-900/35 hover:shadow-[0_0_20px_rgba(139,92,246,0.04)]"
+                className="bg-white/[0.015] border border-white/[0.05] p-4 sm:p-5 rounded-2xl flex items-start gap-4 transition-all duration-300 hover:border-violet-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_40px_rgba(139,92,246,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] backdrop-blur-md"
               >
                 <div className="w-5 h-5 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400 shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
                 <div className="space-y-0.5 text-left">
-                  <h4 className="text-sm font-semibold text-white tracking-tight font-display">{inc.title}</h4>
-                  <p className="text-zinc-500 text-xs leading-relaxed font-light">{inc.desc}</p>
+                  <h4 className="text-[15.5px] sm:text-sm font-semibold text-white tracking-tight font-display">{inc.title}</h4>
+                  <p className="text-zinc-400 text-[14px] sm:text-xs leading-relaxed font-light">{inc.desc}</p>
                 </div>
               </div>
             ))}
@@ -972,17 +1002,19 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 7 - PREGUNTAS FRECUENTES (FAQ Accordion) */}
-      <section id="faqs" className="py-24 border-t border-white/5 bg-black px-6 relative overflow-hidden">
+      <section id="faqs" className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#05030f] to-[#03010a] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle grid of Section 7 */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.012)_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
         <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/[0.03] rounded-full blur-[145px] pointer-events-none -z-10" />
-        <div className="max-w-4xl mx-auto space-y-16 relative z-10">
+        <div className="max-w-4xl mx-auto space-y-10 sm:space-y-16 relative z-10">
           <div className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#a855f7] uppercase bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+            <span className="text-[13.5px] sm:text-xs font-mono font-bold tracking-widest text-[#a855f7] uppercase bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
               DESPEJA CUALQUIER DUDA
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
               Preguntas frecuentes
             </h2>
-            <p className="text-zinc-400 text-xs sm:text-sm font-light">
+            <p className="text-zinc-400 text-[14px] sm:text-sm font-light">
               Respondemos con total transparencia a las interrogantes más comunes sobre nuestro entrenamiento.
             </p>
           </div>
@@ -993,13 +1025,13 @@ export default function App() {
               return (
                 <div 
                   key={idx}
-                  className={`border rounded-2xl overflow-hidden transition-all duration-300 bg-neutral-900/10 ${isOpen ? 'border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.06)]' : 'border-white/5'}`}
+                  className={`border rounded-2xl overflow-hidden transition-all duration-300 bg-white/[0.01] ${isOpen ? 'border-purple-500/35 shadow-[0_0_25px_rgba(168,85,247,0.07)]' : 'border-white/[0.04]'}`}
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 sm:p-6 flex justify-between items-center text-left hover:bg-neutral-900/35 transition-all cursor-pointer"
+                    className="w-full p-5 sm:p-6 flex justify-between items-center text-left hover:bg-white/[0.02] transition-all cursor-pointer"
                   >
-                    <span className="text-sm sm:text-base font-bold text-white pr-4 font-display">
+                    <span className="text-[15.5px] sm:text-sm font-bold text-white pr-4 font-display">
                       {faq.question}
                     </span>
                     <span className={`p-1 rounded-lg bg-neutral-950 border border-white/5 text-zinc-450 transition-transform ${isOpen ? 'rotate-180 text-purple-400 border-purple-500/30' : ''}`}>
@@ -1015,7 +1047,7 @@ export default function App() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="p-6 pt-0 text-xs sm:text-sm text-zinc-400 leading-relaxed font-light border-t border-neutral-900/80">
+                        <div className="p-6 pt-0 text-[14.5px] sm:text-xs text-zinc-400 leading-relaxed font-light border-t border-neutral-900/80">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -1026,30 +1058,31 @@ export default function App() {
             })}
           </div>
 
-          <div className="text-center p-6 bg-neutral-900/10 border border-dashed border-white/10 rounded-3xl max-w-2xl mx-auto space-y-1">
-            <p className="text-xs text-zinc-400">¿Tienes otra consulta específica o requieres asistencia de pago local?</p>
-            <p className="text-xs text-zinc-500 font-mono">Contáctanos vía correo privado: <span className="text-white hover:underline cursor-pointer">turbochat25@gmail.com</span></p>
+          <div className="text-center p-6 bg-[#0a0816]/40 border border-dashed border-purple-550/25 rounded-3xl max-w-2xl mx-auto space-y-2 backdrop-blur-md">
+            <p className="text-[13.5px] sm:text-xs text-zinc-400 font-medium">¿Tienes otra consulta específica o requieres asistencia de pago local?</p>
+            <p className="text-[13.5px] sm:text-xs text-zinc-500 font-mono">Contáctanos vía correo privado: <span className="text-white hover:underline cursor-pointer">turbochat25@gmail.com</span></p>
           </div>
         </div>
       </section>
 
       {/* SECCIÓN NUEVA: ¿QUÉ TENDRÁS AL TERMINAR EL TALLER? */}
-      <section className="py-24 border-t border-white/5 bg-neutral-950 px-6 relative overflow-hidden">
-        {/* Subtle decorative glow */}
+      <section className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#04020a] to-[#03010b] px-5 sm:px-6 relative overflow-hidden">
+        {/* Subtle decorative grid pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1.2px,transparent_1.2px)] [background-size:22px_22px] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-violet-500/[0.03] rounded-full blur-[110px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto space-y-16 relative z-10">
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-violet-400 font-extrabold uppercase bg-violet-400/10 border border-violet-400/20 px-3 py-1 rounded-full">
+            <span className="text-[11.5px] sm:text-xs font-mono tracking-widest text-violet-400 font-extrabold uppercase bg-violet-400/10 border border-violet-400/20 px-3 py-1 rounded-full">
               Resultados Prácticos y Reales
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
               ¿Qué tendrás al terminar el taller?
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-light leading-relaxed">
-              No saldrás únicamente con teoría. Al finalizar tendrás una aplicación web funcional publicada en internet y lista para utilizar o vender.
+            <p className="text-zinc-400 text-[16px] sm:text-base font-light leading-relaxed">
+              No dejes nada al azar. Además del aula en directo, tendrás todos los recursos complementarios necesarios para ejecutar tu idea sin retrasos de ningún tipo.
             </p>
           </div>
 
@@ -1057,16 +1090,16 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Card 1 */}
-            <div className="group bg-neutral-900/25 border border-white/5 p-8 rounded-3xl relative transition-all duration-300 hover:border-violet-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(139,92,246,0.06)] overflow-hidden flex flex-col justify-between">
+            <div className="group bg-white/[0.015] border border-white/[0.05] p-5 sm:p-8 rounded-3xl relative transition-all duration-300 hover:border-violet-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_30px_rgba(139,92,246,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-violet-500/0 via-violet-500/40 to-violet-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
                   <Smartphone className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-violet-300 transition-colors font-display">
+                <h3 className="text-[20px] sm:text-lg font-bold text-white tracking-tight group-hover:text-violet-300 transition-colors font-display">
                   Aplicación funcional
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
+                <p className="text-zinc-400 text-[14px] sm:text-sm leading-relaxed font-light">
                   Tendrás una aplicación completamente operativa creada por ti orientada a tu objetivo.
                 </p>
                 {/* Visual miniature capture showcase complete and readable */}
@@ -1079,16 +1112,16 @@ export default function App() {
             </div>
 
             {/* Card 2 */}
-            <div className="group bg-neutral-900/25 border border-white/5 p-8 rounded-3xl relative transition-all duration-300 hover:border-emerald-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.06)] overflow-hidden flex flex-col justify-between">
+            <div className="group bg-white/[0.015] border border-white/[0.05] p-5 sm:p-8 rounded-3xl relative transition-all duration-300 hover:border-emerald-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_30px_rgba(16,185,129,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/40 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
                   <Sparkles className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors font-display">
+                <h3 className="text-[20px] sm:text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors font-display">
                   Publicada en internet
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
+                <p className="text-zinc-400 text-[14px] sm:text-sm leading-relaxed font-light">
                   Tu aplicación quedará accesible desde cualquier dispositivo con un enlace web público.
                 </p>
                 {/* Visual browser mockup displaying real App with custom route */}
@@ -1109,16 +1142,16 @@ export default function App() {
             </div>
 
             {/* Card 3 */}
-            <div className="group bg-neutral-900/25 border border-white/5 p-8 rounded-3xl relative transition-all duration-300 hover:border-violet-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(139,92,246,0.06)] overflow-hidden flex flex-col justify-between">
+            <div className="group bg-white/[0.015] border border-white/[0.05] p-5 sm:p-8 rounded-3xl relative transition-all duration-300 hover:border-violet-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_30px_rgba(139,92,246,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-violet-500/0 via-violet-500/40 to-violet-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
                   <TrendingUp className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-violet-300 transition-colors font-display">
+                <h3 className="text-[20px] sm:text-lg font-bold text-white tracking-tight group-hover:text-violet-300 transition-colors font-display">
                   Lista para vender
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
+                <p className="text-zinc-400 text-[14px] sm:text-sm leading-relaxed font-light">
                   Podrás utilizarla para complementar tus infoproductos o monetizarla directamente.
                 </p>
                 {/* Micro monetization box showing premium value metrics */}
@@ -1136,48 +1169,48 @@ export default function App() {
             </div>
 
             {/* Card 4 */}
-            <div className="group bg-neutral-900/25 border border-white/5 p-8 rounded-3xl relative transition-all duration-300 hover:border-emerald-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.06)] overflow-hidden">
+            <div className="group bg-white/[0.015] border border-white/[0.05] p-5 sm:p-8 rounded-3xl relative transition-all duration-300 hover:border-emerald-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_30px_rgba(16,185,129,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/40 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
                   <Zap className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors font-display">
+                <h3 className="text-[20px] sm:text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors font-display">
                   Sin programar
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
+                <p className="text-zinc-400 text-[14px] sm:text-sm leading-relaxed font-light">
                   Aprenderás utilizando herramientas modernas sin necesidad de conocimientos técnicos avanzados.
                 </p>
               </div>
             </div>
 
             {/* Card 5 */}
-            <div className="group bg-neutral-900/25 border border-white/5 p-8 rounded-3xl relative transition-all duration-300 hover:border-violet-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(139,92,246,0.06)] overflow-hidden">
+            <div className="group bg-white/[0.015] border border-white/[0.05] p-5 sm:p-8 rounded-3xl relative transition-all duration-300 hover:border-violet-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_30px_rgba(139,92,246,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-violet-500/0 via-violet-500/40 to-violet-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.15)]">
                   <Users className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-violet-300 transition-colors font-display">
+                <h3 className="text-[20px] sm:text-lg font-bold text-white tracking-tight group-hover:text-violet-300 transition-colors font-display">
                   Sin contratar desarrolladores
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
+                <p className="text-zinc-400 text-[14px] sm:text-sm leading-relaxed font-light">
                   No dependerás de terceros para crear o modificar tus proyectos.
                 </p>
               </div>
             </div>
 
             {/* Card 6 */}
-            <div className="group bg-neutral-900/25 border border-white/5 p-8 rounded-3xl relative transition-all duration-300 hover:border-emerald-500/30 hover:bg-neutral-900/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.06)] overflow-hidden">
+            <div className="group bg-white/[0.015] border border-white/[0.05] p-5 sm:p-8 rounded-3xl relative transition-all duration-300 hover:border-emerald-500/35 hover:bg-white/[0.035] hover:shadow-[0_0_30px_rgba(16,185,129,0.08),inset_0_1px_1px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/40 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
                   <Target className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors font-display">
+                <h3 className="text-[20px] sm:text-lg font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors font-display">
                   Proceso replicable
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
+                <p className="text-zinc-400 text-[14px] sm:text-sm leading-relaxed font-light">
                   Podrás aplicar el mismo sistema para crear aplicaciones en distintos nichos y mercados.
                 </p>
               </div>
@@ -1187,11 +1220,11 @@ export default function App() {
 
           {/* Highlighted Quote */}
           <div className="pt-8 text-center max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-neutral-900/30 via-violet-950/20 to-neutral-900/30 p-8 sm:p-10 rounded-3xl border border-violet-500/10 shadow-lg relative overflow-hidden group">
+            <div className="bg-gradient-to-r from-neutral-900/30 via-violet-950/20 to-neutral-900/30 p-5 sm:p-10 rounded-3xl border border-violet-500/10 shadow-lg relative overflow-hidden group">
               <div className="absolute -top-12 -left-12 w-24 h-24 bg-violet-500/10 rounded-full blur-xl pointer-events-none" />
               <div className="absolute -bottom-12 -right-12 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl pointer-events-none" />
               
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white leading-relaxed text-balance">
+              <p className="text-[21px] sm:text-[22px] md:text-2xl font-semibold tracking-tight text-white leading-relaxed text-balance">
                 "Tu objetivo no será aprender tecnología. Tu objetivo será terminar con una aplicación real publicada y lista para generar valor."
               </p>
             </div>
@@ -1201,26 +1234,29 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 8 - OFERTA FINAL & FOOTER */}
-      <section className="py-24 border-t border-white/5 bg-gradient-to-b from-black to-neutral-950 px-6 relative text-center overflow-hidden">
+      <section className="py-12 sm:py-24 border-t border-white/[0.06] bg-gradient-to-b from-[#03010b] via-[#05030f] to-[#010005] px-5 sm:px-6 relative text-center overflow-hidden">
+        {/* Subtle grid of Section 8 */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.012)_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
+        
         {/* Glow behind final CTA */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-violet-600/[0.12] rounded-full blur-[140px] pointer-events-none -z-10" />
 
-        <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+        <div className="max-w-4xl mx-auto space-y-10 sm:space-y-12 relative z-10">
           
           <div className="space-y-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-mono font-extrabold uppercase">
               <Gift className="w-3.5 h-3.5 text-violet-400" /> ¡GARANTÍA DE COMPRA SIN RIESGOS!
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-display tracking-tight text-white leading-tight">
+            <h2 className="text-[35px] sm:text-5xl md:text-6xl font-black font-display tracking-tight text-white leading-tight">
               Comienza a crear aplicaciones web con IA
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-zinc-400 text-[16.5px] sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
               Únete a las decenas de alumnos que ya están transformando su manera de ofrecer valor y cobrando recurrentemente por su propia tecnología No-Code.
             </p>
           </div>
 
           {/* Pricing Box Wrap */}
-          <div className="bg-[#0b0617] p-8 rounded-3xl border border-violet-500/30 max-w-lg mx-auto space-y-6 relative overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.1)]">
+          <div className="bg-[#0b0617]/90 p-5 sm:p-8 rounded-3xl border border-violet-500/30 max-w-lg mx-auto space-y-6 relative overflow-hidden shadow-[0_0_80px_rgba(139,92,246,0.15),inset_0_1px_1.5px_rgba(255,255,255,0.04)] backdrop-blur-md">
             <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-2xl pointer-events-none" />
             
             <div className="flex justify-between items-center pb-4 border-b border-white/5">
@@ -1228,21 +1264,21 @@ export default function App() {
                 <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Inversión única</span>
                 <p className="text-sm font-bold text-white">Cupo Completo Taller IA</p>
               </div>
-              <div className="text-right">
-                <span className="text-xs text-zinc-505 line-through mr-1 font-mono">$199.00 USD</span>
-                <span className="text-2xl font-black text-white font-display">USD 24.99</span>
+              <div className="text-right flex items-baseline gap-2">
+                <span className="text-xs text-zinc-500 line-through font-mono">$199.00 USD</span>
+                <span className="text-[28px] sm:text-2xl font-black text-white font-display">USD 24.99</span>
               </div>
             </div>
 
             {/* Checklist items */}
             <div className="space-y-3 text-left">
               {[
-                '✔ Taller en vivo (Fase práctica directa)',
-                '✔ Grabaciones de por vida en HD',
-                '✔ Plantillas y base de datos de las 4 aplicaciones',
-                '✔ Canal de soporte privado por 15 días tras el taller'
+                'Taller en vivo (Fase práctica directa)',
+                'Grabaciones de por vida en HD',
+                'Plantillas y base de datos de las 4 aplicaciones',
+                'Canal de soporte privado por 15 días tras el taller'
               ].map((ch, id) => (
-                <div key={id} className="flex items-center gap-2.5 text-xs text-zinc-300">
+                <div key={id} className="flex items-center gap-2.5 text-[14px] sm:text-xs text-zinc-300">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>{ch}</span>
                 </div>
@@ -1274,7 +1310,7 @@ export default function App() {
         </div>
 
         {/* Footer legal credits */}
-        <footer className="mt-24 pt-8 border-t border-neutral-900 text-zinc-600 text-[11px] font-mono flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
+        <footer className="mt-24 pt-8 border-t border-neutral-900/60 text-zinc-600 text-[11px] font-mono flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
           <p>© 2026 CREA Y VENDE APPS CON IA. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <a href="#landing-root" className="hover:text-zinc-450 transition-colors">Volver arriba</a>
