@@ -1,0 +1,6 @@
+{
+  "name": "Taller de Aplicaciones Web con IA",
+  "description": "Crea, publica y vende aplicaciones web con IA sin saber programar. Landing page premium inspirada en Framer para un taller en vivo de alto valor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
